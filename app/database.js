@@ -23,7 +23,7 @@ var initialData = {
     // This is "you"!
     "4": {
       "_id": 4,
-      "fullName": "John Smith",
+      "fullName": "Elise Harris",
       // ID of your feed.
       "feed": 4
     }
