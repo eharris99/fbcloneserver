@@ -4,6 +4,7 @@ import React from 'react';
 import StatusUpdate from './statusupdate';
 import CommentThread from './commentthread';
 import Comment from './comment';
+import {getFeedData, postStatusUpdate, postComment} from '../server';
 
 export default class FeedItem extends React.Component {
   constructor(props) {
