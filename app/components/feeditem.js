@@ -6,8 +6,21 @@ import CommentThread from './commentthread';
 import Comment from './comment';
 
 export default class FeedItem extends React.Component {
+  constructor(props) {
+    super(props);
+    // The FeedItem's initial state is what the Feed passed to us.
+    this.state = props.data;
+  }
+
+  handleCommentPost(commentText) {
+    // Post a comment as user ID 4, which is our mock user!
+    postComment(this.state._id, 4, commentText, (updatedFeedItem) => {
+      // Update our state to trigger a re-render.
+      this.setState(updatedFeedItem);
+    });
+  }
   render() {
-  var data = this.props.data;
+  var data = this.state;
   var contents;
   switch(data.type) {
     case "statusUpdate":
@@ -52,7 +65,7 @@ export default class FeedItem extends React.Component {
           </div>
         </div>
         <hr />
-        <CommentThread>
+        <CommentThread  onPost={(commentText) => this.handleCommentPost(commentText)}>
           {
 data.comments.map((comment, i) => {
   // i is comment's index in comments array
