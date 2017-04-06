@@ -91,3 +91,24 @@ export function postStatusUpdate(user, location, contents, cb) {
   emulateServerReturn(newStatusUpdate, cb);
 }
 
+
+/**
+ * Adds a new comment to the database on the given feed item.
+ * Returns the updated FeedItem object.
+ */
+export function postComment(feedItemId, author, contents, cb) {
+  // Since a CommentThread is embedded in a FeedItem object,
+  // we don't have to resolve it. Read the document,
+  // update the embedded object, and then update the
+  // document in the database.
+  var feedItem = readDocument('feedItems', feedItemId);
+  feedItem.comments.push({
+    "author": author,
+    "contents": contents,
+    "postDate": new Date().getTime()
+  });
+  writeDocument('feedItems', feedItem);
+  // Return a resolved version of the feed item so React can
+  // render it.
+  emulateServerReturn(getFeedItemSync(feedItemId), cb);
+}

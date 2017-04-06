@@ -3,7 +3,7 @@
 import React from 'react';
 import FeedItem from './feeditem';
 import StatusUpdateEntry from './statusupdateentry';
-import {getFeedData, postStatusUpdate} from '../server';
+import {getFeedData, postStatusUpdate, postComment} from '../server';
 
 export default class Feed extends React.Component {
   constructor(props) {
