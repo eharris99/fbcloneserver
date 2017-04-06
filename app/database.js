@@ -47,8 +47,8 @@ var initialData = {
         // 01/24/16 3:48PM EST, converted to Unix Time
         // (# of milliseconds since Jan 1 1970 UTC)
         // https://en.wikipedia.org/wiki/Unix_time
-        "postDate": 1491517187,
-        "location": "Austin, TX",
+        "postDate": 1491522789,
+        "location": "New York, NY",
         "contents": "ugh."
       },
       // List of comments on the post
@@ -60,12 +60,12 @@ var initialData = {
           "contents": "hope everything is ok!",
           // The date the comment was posted.
           // 01/24/16 22:00 EST
-          "postDate": 1491517401
+          "postDate": 1491522789
         },
         {
           "author": 3,
           "contents": "sending hugs your way",
-          "postDate": 1491517187
+          "postDate": 1491522789
         }
       ]
     }
